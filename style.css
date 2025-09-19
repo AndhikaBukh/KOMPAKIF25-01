@@ -1,0 +1,353 @@
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap");
+
+:root {
+  --text-color: #2c1e6a;
+  --button-bg: #f0ebff;
+  --light-purple-button: #e6e0ff;
+
+  --background: #060910;
+  --foreground: #111214;
+  --border: #43484b;
+  --focus: #2a2b30;
+
+  --title: #ffffff;
+  --subtitle: #e5e5e5;
+  --hint: #b8b9ba;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Satoshi", sans-serif;
+  background-color: var(--background);
+  height: 100vh;
+  margin: 0;
+  color: var(--title);
+}
+
+.app {
+  height: 100vh;
+  padding: 24px 32px 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.background-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple 5s ease-in-out infinite;
+}
+
+.circle-1 {
+  width: 600px;
+  height: 600px;
+  opacity: 0.7;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 800px;
+  height: 800px;
+  opacity: 0.5;
+  animation-delay: 1s;
+}
+
+.circle-3 {
+  width: 1000px;
+  height: 1000px;
+  opacity: 0.3;
+  animation-delay: 2s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 32px;
+  right: 32px;
+  width: calc(100vw - 64px);
+  z-index: 999;
+
+  padding: 24px 32px;
+  border: 2px solid var(--border);
+  border-radius: 24px;
+  background-color: rgba(6, 9, 16, 30%);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  fill: var(--primary-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--hint);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  padding: 8px 18px;
+
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--title);
+}
+
+main {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding-top: 100px;
+}
+
+.hero-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.hero-title {
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  color: var(--title);
+
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+}
+.hero-title__head {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0 auto;
+
+  -webkit-text-stroke: 2px solid var(--title) !important;
+  -moz-text-stroke: 2px solid var(--title) !important;
+  position: absolute;
+  z-index: 1;
+}
+.hero-title__bg {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0 auto;
+
+  color: var(--title) red;
+  position: absolute;
+  z-index: -1;
+}
+.hero-title__img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: auto;
+  z-index: -10;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+.hero-title span {
+  display: block;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  align-items: end;
+  gap: 20px;
+}
+
+.left-content {
+  text-align: left;
+}
+
+.right-content {
+  text-align: right;
+}
+
+.left-content__text {
+  font-size: 22px;
+  font-weight: 400;
+  max-width: 180px;
+  line-height: 1.3;
+  margin: 0;
+
+  color: var(--subtitle);
+}
+
+.center-container {
+  position: relative;
+  bottom: 0;
+  height: 550px;
+  z-index: 999;
+}
+
+.floating-icon {
+  position: absolute;
+  background: var(--foreground);
+  border: 2px solid var(--border);
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(65, 40, 158, 0.15);
+  padding: 15px;
+  z-index: 2;
+}
+
+.spark-icons {
+  top: 120px;
+  left: -160px;
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+}
+
+.spark-icon-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.spark-icon-circle:hover {
+  background: var(--focus);
+  transform: scale(1.1);
+}
+
+.spark-icon-circle svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary-color);
+}
+
+.user-icon {
+  top: 160px;
+  right: -70px;
+  width: 90px;
+  height: 90px;
+  border-radius: 30px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.user-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right-content__text {
+  font-size: 15px;
+  max-width: 230px;
+  display: inline-block;
+  margin-bottom: 25px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.app-btn {
+  background: linear-gradient(203.02deg, #85d0f5 -39.13%, #e4e4e4 113.87%);
+  color: var(--background);
+  position: relative;
+}
+
+.white-btn {
+  background-color: var(--title);
+  color: var(--background);
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.google-play-btn svg {
+  width: 16px;
+  height: 16px;
+}
